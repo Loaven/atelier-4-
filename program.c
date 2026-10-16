@@ -40,7 +40,7 @@ int main(void)
     for (int i = 0; i < MAX_LIGNES; i++) 
     {
        
-       //calcul de y pour la ligne i : y = 
+       //calcul de y pour la ligne i : y = maximum - (i * (maximum / MAX_LIGNES))
        double y = max - (i * ((double)max / MAX_LIGNES));
 
        //appel de la fonction pour dessiner y
