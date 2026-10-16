@@ -1,8 +1,6 @@
 #include <stdio.h>
 
 #define NB_VALEURS 3
-
-#define MAX_LONGUEUR 50
 #define MAX_LIGNES 15
 
 
@@ -25,10 +23,8 @@ void afficher_ligne_histov(int valeurs[], int taille, double y)
     printf("\n");
 }
 
-
 int main(void) 
 {
-
     int valeurs[NB_VALEURS] = { 8, 4, 12};
     
     //Recherche du maximum du tableau/changement du i par k pour éviter la confusion avec l'autre boucle
@@ -40,8 +36,19 @@ int main(void)
             max = valeurs[k];
         }
 }
+//Boucle pour afficher chaque ligne de l'histogramme vertical
+    for (int i = 0; i < MAX_LIGNES; i++) 
+    {
+       
+       //calcul de y pour la ligne i : y = 
+       double y = max - (i * ((double)max / MAX_LIGNES));
 
-printf("max trouvé : %d\n", max);
+       //appel de la fonction pour dessiner y
+       afficher_ligne_histov(valeurs, NB_VALEURS, y);
+    }
+       
+//ligne finale
+printf("+------------------------------------+\n");
 
     return 0; 
  
