@@ -3,42 +3,45 @@
 #define NB_VALEURS 3
 
 #define MAX_LONGUEUR 50
+#define MAX_LIGNES 15
+
+
+//ajout de la fonction afficher_ligne_histov
+void afficher_ligne_histov(int valeurs[], int taille, double y) 
+{
+    
+    printf("|");
+    for (int j= 0; j < taille; j++) 
+    {
+       if (valeurs [j] >= y) 
+       {
+            printf("xxx");
+    }
+    else
+    {
+        printf("   ");
+    }
+    }
+    printf("\n");
+}
 
 
 int main(void) 
 {
-    //1)initialisation du tableau avec valeurs etape 1
 
     int valeurs[NB_VALEURS] = { 8, 4, 12};
     
-    //1)Bis Recherche du mximum du tableau
+    //Recherche du maximum du tableau/changement du i par k pour éviter la confusion avec l'autre boucle
     int max = valeurs[0];
-    for (int i = 1; i < NB_VALEURS; i++)
+    for (int k = 1; k < NB_VALEURS; k++)
     {
-        if (valeurs[i] > max)
+        if (valeurs[k] > max)
         {
-            max = valeurs[i];
+            max = valeurs[k];
         }
-    }
-
-    //2) Affichage avec l'échelle proportionnelle
-for ( int i = 0; i < NB_VALEURS; i++)
-{
-  
-    //3) calcul du nombre de X à afficher proportionnel à MAX_LONGUEUR et maximum sachant que nombre de X = (valeur actuelle/max)x Max_LONGUEUR 
- int nb_X = (int)(((double)valeurs[i] / max) * MAX_LONGUEUR); 
- 
- // Affichage des X en fonction de cette proportion
-    for (int j= 0; j< nb_X; j++)
-  {
-    printf("X");
-  }
-  
-  //4) Affichage de la valeur
-    printf(" %d\n", valeurs[i]);
 }
-//5) ligne finale
-printf ("+-------------------+\n");
+
+printf("max trouvé : %d\n", max);
 
     return 0; 
  
