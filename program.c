@@ -1,30 +1,27 @@
 #include <stdio.h>
 
+#define NB_VALEURS 3
+
 int main(void) 
 {
-    double valeurs [2000]=(0.0);
-    int nb_valeurs = 0;
-    double montant;
+    //1)initialisation du tableau avec valeurs etape 1
 
-    do
-    {
-       printf("montant de la valeur : "); 
-       scanf("%f", & montant); //attend la saisie d'un nombre à virgule et le met dans montant
-       valeurs[ nb_valeurs ] = montant;
-       nb_valeurs ++; 
-       
-        /* code */
-    } while (montant >= 0);
-    nb_valeurs--;//on ignore la derniere saisie 
-
-    //calcul du CA
-    double ca = 0.0;
+    int valeurs[NB_VALEURS] = { 8, 4, 12}; 
     
-    for (int i = 0; i < nb_valeurs ; i ++)
-    {
-        ca += valeurs[i];
-    }
-    printf("Le CA est de : %f\n", ca);
+    //2) boucle externe ( parcourt chaque valeur du tableau comme dans exemple)
+for ( int i = 0; i < NB_VALEURS; i++)
+{
+  //3) boucle interne : affiche un X autant de fois que la valeur stockée 
+  for (int j= 0; j< valeurs[i]; j++)
+  {
+    printf("X");
+  }
+  
+  //4) Affiche la valeur numérique à la fin de la ligne (cf logigramme)
+    printf(" %d\n", valeurs[i]);
+}
+//5) ligne finale
+printf ("+-------------------+\n");
 
     return 0; 
  
